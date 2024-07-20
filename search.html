@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodist</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/swap.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/media-query.css">
+</head>
+
+<body>
+    <div class="site_content">
+        <section class="container">
+            <!-- ====================== Header ========================= -->
+            <header id="top-navbar" class="top-navbar top-navbar2">
+                <div class="top-header-full">
+                    <div class="back-btn">
+                        <a href="javascript:history.go(-1)">
+                            <svg class="svg-media" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none">
+                                <g mask="url(#mask0_414_8552)">
+                                    <path d="M5 12H19" stroke="black" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M5 12C5 12 9 15 9 17" stroke="black" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M5 12C5 12 9 9 9 7" stroke="black" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </g>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="header-title">
+                        <h1>Search</h1>
+                    </div>
+                </div>
+            </header>
+            <!-- ====================== Header End========================= -->
+            <!-- ====================== Search Screen========================= -->
+            <div class="section-main">
+                <h2 class="d-none">hidden</h2>
+                <div class="new_password_input">
+                    <div class="form-item search-food">
+                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none">
+                            <g>
+                                <path
+                                    d="M10 17C13.866 17 17 13.866 17 10C17 6.13401 13.866 3 10 3C6.13401 3 3 6.13401 3 10C3 13.866 6.13401 17 10 17Z"
+                                    stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M21 21L15 15" stroke="black" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </g>
+                        </svg>
+                        <input type="text" placeholder="Search Food" id="searchBar" autocomplete="off" name="search">
+                        <div id="suggestions"></div>
+                    </div>
+                </div>
+                <nav>
+                    <a href="javascript:void(0);" data-tab="one" class="active">💥 All</a>
+                    <a href="javascript:void(0);" data-tab="two">🍔 Burger</a>
+                    <a href="javascript:void(0);" data-tab="three">🍕 Pizza</a>
+                    <a href="javascript:void(0);" data-tab="four">🌭 Hotdog</a>
+                    <a href="javascript:void(0);" data-tab="five">🍣 Sushi</a>
+                    <a href="javascript:void(0);" data-tab="six">🍗 Biryani</a>
+                    <a href="javascript:void(0);" data-tab="seven">🥪 Sandwich</a>
+                    <a href="javascript:void(0);" data-tab="eight">🥘 Dosa</a>
+                    <div class="clear"></div>
+                </nav>
+                <div class="tabContainer">
+                    <div id="one" class="Tabcondent active">
+                        <div class="all-food-main">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/all-food1.png" alt="all-food1"
+                                onclick="location.href='single_item_screen1.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen1.html'">Cheez
+                                        Hotdog</h3>
+                                    <i class="like-heart like-heart2"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">4.8 (1.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">15 Min(1km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$10.00</p>
+                                <p class="rupess-ten wel-fast-food">Welcome Fast Food</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/all-food2.png" alt="all-food2"
+                                onclick="location.href='single_item_screen2.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen2.html'">
+                                        Manchurian</h3>
+                                    <i class="like-heart like-heart2"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star"> 4.9 (2.3k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">25
+                                        Min(1.2km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$15.00</p>
+                                <p class="rupess-ten wel-fast-food">Mr. Foodie</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/all-food3.png" alt="all-food3"
+                                onclick="location.href='single_item_screen1.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen1.html'">Hot fire
+                                        Pizza</h3>
+                                    <i class="like-heart like-heart2 press"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star"> 4.8 (1.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock"> 30
+                                        Min(1.5km)</p>
+                                </div>
+                                <p class="rupess-ten">$50.00</p>
+                                <p class="rupess-ten wel-fast-food">La Pizzeria</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/all-food5.png" alt="all-food5"
+                                onclick="location.href='single_item_screen2.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen2.html'">Paper
+                                        Dosa</h3>
+                                    <i class="like-heart like-heart2"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">4.9 (1.3k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock"> 30 Min
+                                        (1.1 km)</p>
+                                </div>
+                                <p class="rupess-ten">$150.00</p>
+                                <p class="rupess-ten wel-fast-food">Laxmi Food Corner</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2" id="hamburger-bottom">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/all-food6.png" alt="all-food6"
+                                onclick="location.href='single_item_screen1.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen1.html'">Burger
+                                    </h3>
+                                    <i class="like-heart like-heart2  press"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">5.0 (1.3k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">20 Min
+                                        (1.1km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$20.00</p>
+                                <p class="rupess-ten wel-fast-food">Mr.Food Corner</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="two" class="Tabcondent">
+                        <div class="all-food-main">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/burger1.png" alt="burger1"
+                                onclick="location.href='single_item_screen2.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen2.html'">Veg.
+                                        Burger</h3>
+                                    <i class="like-heart like-heart2"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">4.8 (1.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">10 Min(1km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$10.00</p>
+                                <p class="rupess-ten wel-fast-food">Welcome Fast Food</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/burger3.png" alt="burger3"
+                                onclick="location.href='single_item_screen1.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen1.html'">Crispy
+                                        Veg Burger</h3>
+                                    <i class="like-heart like-heart2  press"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">3.8 (1.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">10 Min
+                                        (2km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$180.00</p>
+                                <p class="rupess-ten wel-fast-food">Welcome Fast Food</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/burger4.png" alt="burger4"
+                                onclick="location.href='single_item_screen2.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen2.html'">
+                                        Vegetable Burger</h3>
+                                    <i class="like-heart like-heart2"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">5.0 (8.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock"> 8 Min
+                                        (2km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$200.00</p>
+                                <p class="rupess-ten wel-fast-food">Jakila Food Restaurant</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/all-food6.png" alt="all-food6"
+                                onclick="location.href='single_item_screen1.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen1.html'">
+                                        Peri-peri cheese burger</h3>
+                                    <i class="like-heart like-heart2"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">4.0 (8.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock"> 10 Min
+                                        (2km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$100.00</p>
+                                <p class="rupess-ten wel-fast-food">La Pizzeria</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="three" class="Tabcondent">
+                        <div class="all-food-main">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/pizza1.png" alt="pizza1"
+                                onclick="location.href='single_item_screen2.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen2.html'">
+                                        Margherita Pizza</h3>
+                                    <i class="like-heart like-heart2"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star"> 4.8 (1.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">10 Min
+                                        (1km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$10.00</p>
+                                <p class="rupess-ten wel-fast-food">Welcome Fast Food</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/pizza2.png" alt="pizza2"
+                                onclick="location.href='single_item_screen1.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen1.html'">Cheese
+                                        Pizza</h3>
+                                    <i class="like-heart like-heart2  press"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star"> 4.9 (2.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock"> 15 Min
+                                        (5km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$110.00</p>
+                                <p class="rupess-ten wel-fast-food">Mr. Foodie</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/pizza3.png" alt="pizza3"
+                                onclick="location.href='single_item_screen2.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen2.html'">
+                                        Sweetcorn Pizza</h3>
+                                    <i class="like-heart like-heart2  press"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">3.8 (1.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">10 Min
+                                        (2km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$180.00</p>
+                                <p class="rupess-ten wel-fast-food">Welcome Fast Food</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/all-food3.png" alt="all-food3"
+                                onclick="location.href='single_item_screen1.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen1.html'">Onions
+                                        Pizza</h3>
+                                    <i class="like-heart like-heart2"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star"> 4.0 (8.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">10 Min
+                                        (2km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$100.00</p>
+                                <p class="rupess-ten wel-fast-food">La Pizzeria</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="four" class="Tabcondent">
+                        <div class="all-food-main">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/hotdog1.png" alt="hotdog1"
+                                onclick="location.href='single_item_screen2.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen2.html'">Italian
+                                        Hotdog</h3>
+                                    <i class="like-heart like-heart2"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star"> 4.8 (1.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">10 Min
+                                        (1km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$10.00</p>
+                                <p class="rupess-ten wel-fast-food">Welcome Fast Food</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/hotdog2.png" alt="hotdog2"
+                                onclick="location.href='single_item_screen1.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen1.html'">Veg
+                                        Cheese Hotdog</h3>
+                                    <i class="like-heart like-heart2  press"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">4.9 (2.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock"> 15 Min
+                                        (5km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$110.00</p>
+                                <p class="rupess-ten wel-fast-food">Mr. Foodie</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/hotdog3.png" alt="hotdog3"
+                                onclick="location.href='single_item_screen2.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen2.html'">Veg
+                                        Hotdog</h3>
+                                    <i class="like-heart like-heart2  press"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">3.8 (1.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">10 Min
+                                        (2km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$180.00</p>
+                                <p class="rupess-ten wel-fast-food">Welcome Fast Food</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/all-food1.png" alt="all-food1"
+                                onclick="location.href='single_item_screen1.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen1.html'">Cheez
+                                        Hotdog</h3>
+                                    <i class="like-heart like-heart2"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">4.0 (8.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">10 Min
+                                        (2km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$100.00</p>
+                                <p class="rupess-ten wel-fast-food">La Pizzeria</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="five" class="Tabcondent">
+                        <div class="all-food-main">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/sushi1.png" alt="sushi1"
+                                onclick="location.href='single_item_screen2.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen2.html'">Avocado
+                                        Sushi</h3>
+                                    <i class="like-heart like-heart2 press"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star"> 4.8 (1.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">10 Min
+                                        (1km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$10.00</p>
+                                <p class="rupess-ten wel-fast-food">Welcome Fast Food</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/sushi2.png" alt="sushi2"
+                                onclick="location.href='single_item_screen1.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen1.html'">Creamy
+                                        Avocado Sushi</h3>
+                                    <i class="like-heart like-heart2"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">4.9 (2.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock"> 15 Min
+                                        (5km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$110.00</p>
+                                <p class="rupess-ten wel-fast-food">Mr. Foodie</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/sushi3.png" alt="sushi3"
+                                onclick="location.href='single_item_screen2.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen2.html'">Veg
+                                        Sushi</h3>
+                                    <i class="like-heart like-heart2  press"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">3.8 (1.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">10 Min
+                                        (2km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$180.00</p>
+                                <p class="rupess-ten wel-fast-food">Welcome Fast Food</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="six" class="Tabcondent">
+                        <div class="all-food-main">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/biryani1.png" alt="biryani"
+                                onclick="location.href='single_item_screen1.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen1.html'">Fish
+                                        Biryani</h3>
+                                    <i class="like-heart like-heart2 press"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">4.8 (1.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">10 Min
+                                        (1km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$10.00</p>
+                                <p class="rupess-ten wel-fast-food">Welcome Fast Food</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/biryani2.png" alt="biryani2"
+                                onclick="location.href='single_item_screen2.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen2.html'">Egg
+                                        Biryani</h3>
+                                    <i class="like-heart like-heart2"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">4.9 (2.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">15 Min
+                                        (5km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$110.00</p>
+                                <p class="rupess-ten wel-fast-food">Mr. Foodie</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/all-food7.png" alt="all-food7"
+                                onclick="location.href='single_item_screen1.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen1.html'">Fry
+                                        Chicken Biryani</h3>
+                                    <i class="like-heart like-heart2  press"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star"> 3.8 (1.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">10 Min
+                                        (2km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$180.00</p>
+                                <p class="rupess-ten wel-fast-food">Welcome Fast Food</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="seven" class="Tabcondent">
+                        <div class="all-food-main">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/sandwich1.png" alt="sandwich1"
+                                onclick="location.href='single_item_screen2.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen2.html'">Makhni
+                                        Ches Sandwich</h3>
+                                    <i class="like-heart like-heart2 press"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star"> 4.8 (1.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock"> 10 Min
+                                        (1km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$10.00</p>
+                                <p class="rupess-ten wel-fast-food">Welcome Fast Food</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/sandwich2.png" alt="sandwich2"
+                                onclick="location.href='single_item_screen1.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen1.html'">Paneer
+                                        Msl Sandwich</h3>
+                                    <i class="like-heart like-heart2"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star"> 4.9 (2.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">15 Min
+                                        (5km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$110.00</p>
+                                <p class="rupess-ten wel-fast-food">Mr. Foodie</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/sandwich3.png" alt="sandwich3"
+                                onclick="location.href='single_item_screen2.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen2.html'">Italin
+                                        Club Sandwich</h3>
+                                    <i class="like-heart like-heart2  press"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">3.8 (1.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">10 Min
+                                        (2km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$180.00</p>
+                                <p class="rupess-ten wel-fast-food">Welcome Fast Food</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/all-food4.png" alt="all-food4"
+                                onclick="location.href='single_item_screen1.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen1.html'">Grill
+                                        Sandwich</h3>
+                                    <i class="like-heart like-heart2"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">5.0 (8.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock"> 8 Min
+                                        (2km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$200.00</p>
+                                <p class="rupess-ten wel-fast-food">Jakila Food Restaurant</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="eight" class="Tabcondent">
+                        <div class="all-food-main">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/dosa1.png" alt="dosa1"
+                                onclick="location.href='single_item_screen2.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen2.html'">Masala
+                                        Dosa</h3>
+                                    <i class="like-heart like-heart2 press"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">4.8 (1.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">10 Min
+                                        (1km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$10.00</p>
+                                <p class="rupess-ten wel-fast-food">Welcome Fast Food</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/dosa2.png" alt="dosa2"
+                                onclick="location.href='single_item_screen1.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen1.html'">Sada
+                                        Dosa</h3>
+                                    <i class="like-heart like-heart2"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">4.9 (2.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock">15 Min
+                                        (5km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$110.00</p>
+                                <p class="rupess-ten wel-fast-food">Mr. Foodie</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/all-food5.png" alt="all-food5"
+                                onclick="location.href='single_item_screen1.html'">
+                            <div class="all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen1.html'">Paper
+                                        Dosa</h3>
+                                    <i class="like-heart like-heart2  press"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star">3.8 (1.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock"> 10 Min
+                                        (2km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$180.00</p>
+                                <p class="rupess-ten wel-fast-food">Welcome Fast Food</p>
+                            </div>
+                        </div>
+                        <div class="all-food-main all-food-main2">
+                            <img class="all-food-imgs" src="assets/images/home_screen1/dosa3.png" alt="dosa3"
+                                onclick="location.href='single_item_screen1.html'">
+                            <div class=" all-food-sub">
+                                <div class="all-food-text-main">
+                                    <h3 class="cheez-hotdog" onclick="location.href='single_item_screen1.html'">Mysore
+                                        dosa</h3>
+                                    <i class="like-heart like-heart2"></i>
+                                </div>
+                                <div class="app">
+                                    <p><img src="assets/images/star.svg" alt="star"> 5.0 (8.7k)</p>
+                                    <p><img class="view-all-arrow" src="assets/images/clock.svg" alt="clock"> 8 Min
+                                        (2km)
+                                    </p>
+                                </div>
+                                <p class="rupess-ten">$200.00</p>
+                                <p class="rupess-ten wel-fast-food">Jakila Food Restaurant</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ====================== Search Screen End========================= -->
+        </section>
+    </div>
+    <script src="assets/javascript/jquery.min.js"></script>
+    <script src="assets/javascript/bootstrap.bundle.min.js"></script>
+    <script src="assets/javascript/slick.min.js"></script>
+    <script src="assets/javascript/script.js"></script>
+</body>
+
+</html>
