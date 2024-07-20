@@ -2,30 +2,23 @@
 // Start the session
 session_start();
 
-
 // When the user is logged in, go to the user page
 if (isset($_SESSION['logged-in']) && $_SESSION['logged-in'] == TRUE) {
     die(header('Location: user.php'));
 }
 
-
-// Import database connection and class
-require('db-config.php');
-
-
 // Place bot token of your bot here
-define('BOT_TOKEN', 'XXXXXXXXXXXX:XXXXXXXXXXXXXXXXXXXXXXXX');
-
+define('BOT_TOKEN', '7441738058:AAFp4LGoZ6ODDcTanz7pcUoPtbQBg0V_6aw');
+define('XATA_API_KEY', 'xau_oRaXvdPuvISpdiX1Qxbv2p0zjpXd79Qr8');
+define('XATA_BASE_URL', 'https://raog812-s-workspace-ot2f70.ap-southeast-2.xata.sh/db/stol-db:main/tables/stol');
 
 // The Telegram hash is required to authorize
 if (!isset($_GET['hash'])) {
     die('Telegram hash not found');
 }
 
-
 // Official Telegram authorization - function
-function checkTelegramAuthorization($auth_data)
-{
+function checkTelegramAuthorization($auth_data) {
     $check_hash = $auth_data['hash'];
     unset($auth_data['hash']);
     $data_check_arr = [];
@@ -45,81 +38,69 @@ function checkTelegramAuthorization($auth_data)
     return $auth_data;
 }
 
+// Make a POST request
+function makePostRequest($url, $data) {
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Authorization: Bearer ' . XATA_API_KEY,
+        'Content-Type: application/json'
+    ]);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    $response = curl_exec($ch);
+    curl_close($ch);
+    return json_decode($response, true);
+}
+
+// Make a GET request
+function makeGetRequest($url) {
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Authorization: Bearer ' . XATA_API_KEY,
+        'Content-Type: application/json'
+    ]);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    return json_decode($response, true);
+}
 
 // User authentication - function
-function userAuthentication($db, $auth_data)
-{
-    // Creating user - function
-    function createNewUser($db, $auth_data)
-    {
-        // User not found, so create it
-        $id = $db->Insert(
-            "INSERT INTO `users`
-                (`first_name`, `last_name`, `telegram_id`, `telegram_username`, `profile_picture`, `auth_date`)
-                    values (:first_name, :last_name, :telegram_id, :telegram_username, :profile_picture, :auth_date)",
-            [
-                'first_name'        => $auth_data['first_name'],
-                'last_name'         => $auth_data['last_name'],
-                'telegram_id'       => $auth_data['id'],
-                'telegram_username' => $auth_data['username'],
-                'profile_picture'   => $auth_data['photo_url'],
-                'auth_date'         => $auth_data['auth_date']
-            ]
-        );
-    }
+function userAuthentication($auth_data) {
+    // Check if user exists
+    $url = XATA_BASE_URL . '/query';
+    $query = [
+        'columns' => ['telegram_id'],
+        'page' => ['size' => 1],
+        'filter' => ['telegram_id' => $auth_data['id']]
+    ];
+    $response = makePostRequest($url, $query);
 
-    // Updating user - function
-    function updateExistedUser($db, $auth_data)
-    {
+    if (!empty($response['records'])) {
         // User found, so update it
-        $db->Update(
-            "UPDATE `users`
-                SET `first_name`        = :first_name,
-                    `last_name`         = :last_name,
-                    `telegram_username` = :telegram_username,
-                    `profile_picture`   = :profile_picture,
-                    `auth_date`         = :auth_date
-                        WHERE `telegram_id` = :telegram_id",
-            [
-                'first_name'        => $auth_data['first_name'],
-                'last_name'         => $auth_data['last_name'],
-                'telegram_username' => $auth_data['username'],
-                'profile_picture'   => $auth_data['photo_url'],
-                'auth_date'         => $auth_data['auth_date'],
-                'telegram_id'       => $auth_data['id']
-            ]
-        );
-    }
-
-    // User checker - function
-    function checkUserExists($db, $auth_data)
-    {
-        // Get the user Telegram ID
-        $target_id = $auth_data['id'];
-
-        // Check the user is exist in database or not
-        $isUser = $db->Select(
-            "SELECT `telegram_id`
-                FROM `users`
-                    WHERE `telegram_id` = :id",
-            [
-                'id' => $target_id
-            ]
-        );
-
-        // Return true if the user exists in database
-        if (!empty($isUser) && $isUser[0]['telegram_id'] === $target_id) {
-            return TRUE;
-        }
-    }
-
-    // Check the user
-    if (checkUserExists($db, $auth_data) == TRUE) {
-        // User found, so update it
-        updateExistedUser($db, $auth_data);
+        $user_id = $response['records'][0]['id'];
+        $url = XATA_BASE_URL . '/data/' . $user_id;
+        $update_data = [
+            'first_name' => $auth_data['first_name'],
+            'last_name' => $auth_data['last_name'],
+            'telegram_username' => $auth_data['username'],
+            'profile_picture' => $auth_data['photo_url'],
+            'auth_date' => $auth_data['auth_date']
+        ];
+        makePostRequest($url, $update_data);
     } else {
         // User not found, so create it
-        createNewUser($db, $auth_data);
+        $url = XATA_BASE_URL . '/data';
+        $create_data = [
+            'first_name' => $auth_data['first_name'],
+            'last_name' => $auth_data['last_name'],
+            'telegram_id' => $auth_data['id'],
+            'telegram_username' => $auth_data['username'],
+            'profile_picture' => $auth_data['photo_url'],
+            'auth_date' => $auth_data['auth_date']
+        ];
+        makePostRequest($url, $create_data);
     }
 
     // Create logged in user session
@@ -129,19 +110,18 @@ function userAuthentication($db, $auth_data)
     ];
 }
 
-
 // Start the process
 try {
     // Get the authorized user data from Telegram widget
     $auth_data = checkTelegramAuthorization($_GET);
 
     // Authenticate the user
-    userAuthentication($db, $auth_data);
+    userAuthentication($auth_data);
 } catch (Exception $e) {
     // Display errors
     die($e->getMessage());
 }
 
-
 // Go to the user page
 die(header('Location: user.php'));
+?>
