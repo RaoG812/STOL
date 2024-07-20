@@ -1,17 +1,3 @@
-<?php
-// Start the session
-session_start();
-
-
-// When the user is logged in, go to the user page
-if (isset($_SESSION['logged-in']) && $_SESSION['logged-in'] == TRUE) {
-    die(header('Location: user.php'));
-}
-
-
-// Place username of your bot here
-define('BOT_TOKEN', '7441738058:AAFp4LGoZ6ODDcTanz7pcUoPtbQBg0V_6aw');
-?>
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -28,7 +14,7 @@ define('BOT_TOKEN', '7441738058:AAFp4LGoZ6ODDcTanz7pcUoPtbQBg0V_6aw');
     <h1>Sign Up & Login With Telegram</h1>
     <div class="middle-center">
         <h1>Hello, Anonymous!</h1>
-        <script async src="https://telegram.org/js/telegram-widget.js" data-telegram-login="<?= BOT_USERNAME ?>" data-size="large" data-auth-url="auth.php"></script>
+        <script async src="https://telegram.org/js/telegram-widget.js" data-telegram-login="<?= stol_food_bot ?>" data-size="large" data-auth-url="auth.php"></script>
     </div>
 </body>
 
