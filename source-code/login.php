@@ -10,7 +10,7 @@ if (isset($_SESSION['logged-in']) && $_SESSION['logged-in'] == TRUE) {
 
 
 // Place username of your bot here
-define('stol_food_bot', 'XXXXXXXXXXXX');
+define('BOT_TOKEN', '7441738058:AAFp4LGoZ6ODDcTanz7pcUoPtbQBg0V_6aw');
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
