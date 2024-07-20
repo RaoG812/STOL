@@ -72,7 +72,7 @@ class Database
 
 // Connect To Database
 $db = new Database(
-    "127.0.0.1",      // Host Name
+    "https://RaoG812-s-workspace-ot2f70.ap-southeast-2.xata.sh/db/stol-db:main",      // Host Name
     "telegram_login", // Database Name
     "root",           // Username
     ""                // Password
