@@ -1,7 +1,5 @@
-const express = require('express');
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
-const router = express.Router();
 const XATA_API_KEY = 'xau_sAKUOpYM0Fnw1YdpiK3cvVEubLpocjh12'; // Replace with your actual Xata API key
 const DATABASE_URL = 'https://raog812-s-workspace-ot2f70.ap-southeast-2.xata.sh/db/stol-db:main';
 
@@ -20,7 +18,7 @@ const xataFetch = async (url, options) => {
 };
 
 // Endpoint to handle Telegram authentication
-router.post('/', async (req, res) => {
+export default async (req, res) => {
   try {
     const { query_id, user } = req.body;
 
@@ -60,6 +58,4 @@ router.post('/', async (req, res) => {
     console.error('Error handling authentication:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
-});
-
-module.exports = router;
+};
