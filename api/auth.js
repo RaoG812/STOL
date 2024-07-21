@@ -61,7 +61,7 @@ module.exports = async (req, res) => {
       await xataFetch(`${DATABASE_URL}/tables/stol/data?columns=id`, insertUserOptions);
 
       // Redirect to a different page after successful login
-      res.redirect('https://your-redirect-url.com'); // Replace with your post-login URL
+      res.redirect('https://stol-app.vercel.app/Home_Screen1.html'); // Replace with your post-login URL
     }
   } catch (error) {
     console.error('Error handling authentication:', error);
