@@ -1,4 +1,4 @@
-
+{
   "name": "foodist",
   "version": "1.0.0",
   "main": "api/index.js",
@@ -8,7 +8,6 @@
   "dependencies": {
     "express": "^4.17.1",
     "body-parser": "^1.19.0",
-    "axios": "^0.21.1",
-    "node-fetch": "^3.3.2"
+    "axios": "^0.21.1"
   }
 }
