@@ -1,6 +1,5 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const authRoutes = require('./auth'); // Import auth.js
+import express from 'express';
+import bodyParser from 'body-parser';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -9,10 +8,15 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Routes
-app.use('/api/auth', authRoutes); // Use routes defined in auth.js
+// Dynamic import of auth.mjs
+const initRoutes = async () => {
+  const authRoutes = await import('./auth.mjs');
+  app.use('/api/auth', authRoutes.default); // Use the default export from auth.mjs
+};
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+// Initialize routes and start server
+initRoutes().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
 });
