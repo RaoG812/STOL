@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+const { URLSearchParams } = require('url');
 
 const XATA_API_KEY = 'xau_sAKUOpYM0Fnw1YdpiK3cvVEubLpocjh12'; // Replace with your actual Xata API key
 const DATABASE_URL = 'https://raog812-s-workspace-ot2f70.ap-southeast-2.xata.sh/db/stol-db:main';
@@ -6,6 +6,7 @@ const DATABASE_URL = 'https://raog812-s-workspace-ot2f70.ap-southeast-2.xata.sh/
 // Helper function to fetch from Xata
 const xataFetch = async (url, options) => {
   try {
+    const { default: fetch } = await import('node-fetch');
     const response = await fetch(url, options);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -18,7 +19,7 @@ const xataFetch = async (url, options) => {
 };
 
 // Endpoint to handle Telegram authentication
-export default async (req, res) => {
+module.exports = async (req, res) => {
   try {
     const { query_id, user } = req.body;
 
@@ -37,7 +38,7 @@ export default async (req, res) => {
 
     if (checkUser.length > 0) {
       // User exists, handle redirect or response accordingly
-      return res.redirect('https://stol-app.vercel.app/Home_Screen1.html'); // Replace with your post-login URL
+      return res.redirect('https://your-redirect-url.com'); // Replace with your post-login URL
     } else {
       // User does not exist, insert new record
       await xataFetch(`${DATABASE_URL}/tables/stol/data?columns=id`, {
@@ -52,7 +53,7 @@ export default async (req, res) => {
       });
 
       // Redirect to a different page after successful login
-      res.redirect('https://your-redirect-url.com'); // Replace with your post-login URL
+      res.redirect('https://stol-app.vercel.app/Home_Screen1.html'); // Replace with your post-login URL
     }
   } catch (error) {
     console.error('Error handling authentication:', error);
