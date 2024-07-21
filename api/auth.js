@@ -1,50 +1,50 @@
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
+const XATA_API_KEY = 'xau_sAKUOpYM0Fnw1YdpiK3cvVEubLpocjh12';  // Replace with your actual API key
+const API_URL = 'https://raog812-s-workspace-ot2f70.ap-southeast-2.xata.sh/db/stol-db:main/tables/stol/data';
+const AUTH_HEADER = { Authorization: `Bearer ${XATA_API_KEY}`, 'Content-Type': 'application/json' };
+
+// Function to check if a user is already in the database
+async function checkUserExists(telegramId) {
+  const response = await fetch(`${API_URL}?filter=telegram_id=${telegramId}`, {
+    method: 'GET',
+    headers: AUTH_HEADER
+  });
+
+  const data = await response.json();
+  return data.length > 0;  // Returns true if user exists
+}
+
+// Function to insert a new user into the database
+async function insertUser(userData) {
+  const response = await fetch(API_URL, {
+    method: 'POST',
+    headers: AUTH_HEADER,
+    body: JSON.stringify(userData)
+  });
+
+  const data = await response.json();
+  return data;  // Returns the inserted record
+}
+
+// Main handler for authentication
 export default async function handler(req, res) {
-    if (req.method !== 'POST') {
-        return res.status(405).end(); // Method Not Allowed
+  try {
+    // Extract user data from request
+    const userData = req.body;  // Ensure that req.body contains the necessary fields
+
+    // Check if user already exists
+    const userExists = await checkUserExists(userData.telegram_id);
+
+    if (!userExists) {
+      // If user does not exist, insert them into the database
+      const insertedUser = await insertUser(userData);
+      res.status(201).json(insertedUser);  // Return the inserted user record
+    } else {
+      res.status(200).json({ message: 'User already logged in' });
     }
-
-    const XATA_API_KEY = process.env.XATA_API_KEY; // Use environment variables
-    const XATA_ENDPOINT = 'https://RaoG812-s-workspace-ot2f70.ap-southeast-2.xata.sh/db/stol-db:main/tables/stol/data';
-
-    const { id, first_name, last_name, username } = req.body;
-
-    try {
-        // Check if the user already exists
-        const checkResponse = await fetch(`${XATA_ENDPOINT}?filter[telegram_id]=${id}`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${XATA_API_KEY}`,
-                'Content-Type': 'application/json'
-            }
-        });
-        const existingUser = await checkResponse.json();
-
-        if (existingUser.data.length > 0) {
-            return res.status(200).json({ status: 'success', message: 'User already logged in' });
-        }
-
-        // Insert new user
-        const postResponse = await fetch(XATA_ENDPOINT, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${XATA_API_KEY}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                first_name,
-                last_name,
-                telegram_id: id,
-                telegram_username: username
-            })
-        });
-        const result = await postResponse.json();
-
-        return res.status(200).json(result);
-
-    } catch (error) {
-        console.error('Error:', error);
-        return res.status(500).json({ error: 'Internal Server Error' });
-    }
+  } catch (err) {
+    console.error('Error processing request:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 }
