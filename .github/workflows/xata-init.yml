@@ -1,0 +1,27 @@
+name: Xata Initialization
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  setup-xata:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install Xata CLI
+        run: npm install @xata.io/cli -g
+
+      - name: Initialize Xata project
+        run: xata init --db https://RaoG812-s-workspace-ot2f70.ap-southeast-2.xata.sh/db/stol-db
+        env:
+          XATA_API_KEY: ${{ secrets.XATA_API_KEY }}  # Store your Xata API key in GitHub secrets
