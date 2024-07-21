@@ -20,8 +20,11 @@ app.use(bodyParser.json());
 app.post('/auth', async (req, res) => {
     const { id, first_name, last_name, username } = req.body;
 
+    console.log('Received auth data:', req.body); // Log incoming data
+
     try {
         const result = await pool.query('SELECT * FROM users WHERE telegram_id = $1', [id]);
+        console.log('Query result:', result.rows); // Log query result
 
         if (result.rows.length === 0) {
             // Insert new user
@@ -34,7 +37,7 @@ app.post('/auth', async (req, res) => {
             res.status(200).send('User already exists in the database.');
         }
     } catch (error) {
-        console.error('Database error:', error);
+        console.error('Database error:', error.message); // Log detailed error
         res.status(500).send('Internal Server Error');
     }
 });
