@@ -45,7 +45,7 @@ module.exports = async (req, res) => {
 
     if (checkUser.records && checkUser.records.length > 0) {
       // User exists, handle redirect or response accordingly
-      return res.redirect('https://your-redirect-url.com'); // Replace with your post-login URL
+      return res.redirect('https://stol-app.vercel.app/Home_Screen1.html'); // Replace with your post-login URL
     } else {
       // User does not exist, insert new record
       const insertUserOptions = {
