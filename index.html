@@ -14,32 +14,22 @@
     <h1>Sign Up & Login With Telegram</h1>
     <div class="middle-center">
         <h1>Hello, Anonymous!</h1>
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="stol_food_bot" data-size="medium" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
-<script type="text/javascript">
-  function onTelegramAuth(user) {
-    alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
-  }
-</script>
+        <!-- Button to open Telegram authentication -->
+        <a href="#" id="telegram-login-btn">Login with Telegram</a>
         <script type="text/javascript">
-  function onTelegramAuth(user) {
-    fetch('https://<your-render-app-url>/auth', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        id: user.id,
-        first_name: user.first_name,
-        last_name: user.last_name,
-        username: user.username || null
-      }),
-    })
-    .then(response => response.text())
-    .then(data => alert(data))
-    .catch(error => console.error('Error:', error));
-  }
-</script>
-
+          document.getElementById('telegram-login-btn').addEventListener('click', function() {
+            // Replace with your bot username and the URL of your redirect page
+            const botUsername = 'stol_food_bot';
+            const redirectUrl = 'https://your-redirect-url.com';
+            const scope = 'write';
+            
+            // Construct the Telegram OAuth URL
+            const oauthUrl = `https://telegram.org/auth?bot=${botUsername}&redirect_uri=${encodeURIComponent(redirectUrl)}&scope=${scope}`;
+            
+            // Open the URL in a new window
+            window.open(oauthUrl, '_blank');
+          });
+        </script>
     </div>
 </body>
 
