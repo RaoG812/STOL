@@ -9,9 +9,9 @@
     "express": "^4.17.1",
     "body-parser": "^1.19.0",
     "axios": "^0.21.1",
-    "node-fetch": "^3.3.0" // Add node-fetch
+    "node-fetch": "^3.3.0" 
   },
   "devDependencies": {
-    "@xata.io/cli": "^1.0.0" // Add xata CLI
+    "@xata.io/cli": "^1.0.0" 
   }
 }
