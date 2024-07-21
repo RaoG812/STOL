@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     }
 
     const XATA_API_KEY = process.env.XATA_API_KEY; // Use environment variables
-    const XATA_ENDPOINT = 'https://RaoG812-s-workspace-ot2f70.ap-southeast-2.xata.sh/db/stol-db:main/tables/stol';
+    const XATA_ENDPOINT = 'https://RaoG812-s-workspace-ot2f70.ap-southeast-2.xata.sh/db/stol-db:main/tables/stol/data';
 
     const { id, first_name, last_name, username } = req.body;
 
