@@ -14,32 +14,26 @@
     <h1>Sign Up & Login With Telegram</h1>
     <div class="middle-center">
         <h1>Hello, Anonymous!</h1>
-        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="stol_food_bot" data-size="medium" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
-<script type="text/javascript">
-  function onTelegramAuth(user) {
-    alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
-  }
-</script>
+        <!-- Button to open Telegram authentication -->
+        <a href="#" id="telegram-login-btn">Login with Telegram</a>
         <script type="text/javascript">
-  function onTelegramAuth(user) {
-    fetch('https://stol-zfcy.onrender.com/auth', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        id: user.id,
-        first_name: user.first_name,
-        last_name: user.last_name,
-        username: user.username || null
-      }),
-    })
-    .then(response => response.text())
-    .then(data => alert(data))
-    .catch(error => console.error('Error:', error));
-  }
-</script>
+          document.getElementById('telegram-login-btn').addEventListener('click', function() {
+            // Replace with your bot username and the URL of your redirect page
+            const botUsername = 'stol_food_bot';
+            const redirectUrl = 'https://raog812.github.io/STOL/Home_Screen1.html'; // Update with your redirect URL
 
+            // Construct the Telegram OAuth URL
+            const oauthUrl = `https://t.me/${botUsername}?start=auth&redirect_uri=${encodeURIComponent(redirectUrl)}`;
+
+            // Open the URL in a popup window
+            const width = 600;
+            const height = 400;
+            const left = (window.innerWidth - width) / 2;
+            const top = (window.innerHeight - height) / 2;
+            
+            window.open(oauthUrl, 'TelegramAuthPopup', `width=${width},height=${height},top=${top},left=${left}`);
+          });
+        </script>
     </div>
 </body>
 
